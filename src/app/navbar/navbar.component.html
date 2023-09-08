@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg py-3 bg-danger">
+    <div class="container">
+      <a class="navbar-brand text-white">Notes <i class="ms-1 fa-solid fa-note-sticky"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li *ngIf="isLogin" class="nav-item">
+            <a class="text-white nav-link" routerLink="home">home</a>
+          </li>
+          <li *ngIf="!isLogin"  class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Enter Website
+            </a>
+            <ul  class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="login">Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="register">register</a></li>
+            </ul>
+          </li>
+          <li *ngIf="isLogin"  class="nav-item">
+            <a class="nav-link text-info">
+              hello, {{user.first_name}}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isLogin" class="text-white nav-link" (click)="logout()">logout</a>
+          </li>
+         
+        </ul>
+      
+      </div>
+    </div>
+  </nav>

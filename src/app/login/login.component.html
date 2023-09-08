@@ -1,0 +1,35 @@
+<form [formGroup]="LoginForm" (ngSubmit)="getLogForm(LoginForm.value)" class="my-5 w-75 mx-auto p-5">
+    <div class="my-3 inputDiv">
+        <input formControlName="email" type="text" class="form-control my-2" placeholder="email">
+        <i *ngIf="LoginForm.get('email')?.touched" class="fa-solid" [ngClass]="{'text-danger fa-xmark':(LoginForm.get('email')?.errors&&
+      LoginForm.get('email')?.touched)
+     ,'fa-check-double text-success':!(LoginForm.get('email')?.errors) &&
+     LoginForm.get('email')?.touched}"></i>
+     </div>
+     <div *ngIf="LoginForm.get('email')?.errors&&
+     LoginForm.get('email')?.touched" class="my-3 alert alert-danger">
+        <p *ngIf="LoginForm.get('email')?.errors?.['required']">email is required</p>
+        <p *ngIf="LoginForm.get('email')?.errors?.['pattern']"> email should
+           be in the form userName@anyServer.anyDomain</p>
+     </div>
+     <div class="my-3 inputDiv">
+        <input formControlName="password" type="password" class="form-control my-2" placeholder="password">
+        <i *ngIf="LoginForm.get('password')?.touched" class="fa-solid" [ngClass]="{'text-danger fa-xmark':(LoginForm.get('password')?.errors&&
+      LoginForm.get('password')?.touched)
+     ,'fa-check-double text-success':!(LoginForm.get('password')?.errors) &&
+     LoginForm.get('password')?.touched}"></i>
+     </div>
+     <div *ngIf="LoginForm.get('password')?.errors&&
+     LoginForm.get('password')?.touched" class="my-3 alert alert-danger">
+        <p *ngIf="LoginForm.get('password')?.errors?.['required']">password is required</p>
+        <p *ngIf="LoginForm.get('password')?.errors?.['pattern']"> password should
+           contain at least 5 characters and should be
+           8 to 15 as length
+        </p>
+     </div>
+     <button [disabled]="LoginForm.status=='INVALID'" type="submit" class="w-25 btn btn-outline-success my-2">Sign
+        In</button>
+      <div class="alert alert-danger" *ngIf="loginError">
+     {{loginError}}
+      </div>
+</form>

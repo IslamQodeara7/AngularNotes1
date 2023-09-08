@@ -1,0 +1,39 @@
+input{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid green;
+}
+
+.inputDiv i {
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+.inputDiv input:focus{
+    outline: 5px solid white;
+    border: none;
+}
+
+.inputDiv{
+    position: relative;
+    border: 2px solid black;
+    padding: 0 30px;
+    border-radius:30px ;
+    background-color: white;
+}
+
+.inputDiv input{
+    outline: none;
+    border: none;
+}
+
+form button{
+    border-radius: 30px;
+}
+form{
+    border: 2px solid black;
+    background-image: linear-gradient(black,gray,white);
+    border-radius: 50px 0;
+}
